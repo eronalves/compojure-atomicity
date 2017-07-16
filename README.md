@@ -1,6 +1,6 @@
 # Atomicity Clojure Compojure
 
-Simple project to test Clojure atomicity with compojure and ring to serve an API blocking duplicate operations.
+Simple project to test Clojure [atomicity](https://clojure.org/reference/atoms) with compojure and ring to serve an API blocking duplicate operations.
 
 ## Prerequisites
 
