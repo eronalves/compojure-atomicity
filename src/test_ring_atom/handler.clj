@@ -23,9 +23,7 @@
 
 (defn add-number [number]
   (if (not (t-map/has-pr? number))
-    (do 
-      (t-map/add-pr number)
-      (Thread/sleep 60000))
+    (t-map/add-pr number)
     (throw (ex-info (str "Number " number " already added") {}))))
 
 (defroutes app-routes
