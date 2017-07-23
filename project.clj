@@ -1,5 +1,5 @@
 (defproject test-ring-atom "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "Simple test with atom and map to block duplicatid numbers added"
   :url "http://example.com/FIXME"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]

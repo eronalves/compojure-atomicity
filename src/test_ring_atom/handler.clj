@@ -3,7 +3,7 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [ring.middleware.json :as middleware]
-            [test-ring-atom.test-queue :as t-queue]))
+            [test-ring-atom.test-map :as t-map]))
 
 (defn ok [d] {:status 200 :body d})
 
@@ -22,9 +22,9 @@
           (bad-request 400 (.getMessage e)))))))
 
 (defn add-number [number]
-  (if (not (t-queue/queue-has-id? number))
+  (if (not (t-map/has-pr? number))
     (do 
-      (t-queue/add-to-queue number)
+      (t-map/add-pr number)
       (Thread/sleep 60000))
     (throw (ex-info (str "Number " number " already added") {}))))
 
@@ -34,9 +34,9 @@
     (ok (str "Number " number " added" )))
 
   (GET "/has-number/:number" [number]
-    (if (t-queue/queue-has-id? number)
-      (ok (str "Queue has number " number))
-      (ok (str "Queue has not number " number))))
+    (if (t-map/has-pr? number)
+      (ok (str "Map has number " number))
+      (ok (str "Map has not number " number))))
 
   (route/not-found "Not Found"))
 
